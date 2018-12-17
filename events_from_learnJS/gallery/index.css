@@ -1,0 +1,19 @@
+.container {
+	max-width: 580px;
+}
+
+#main-img {
+	height: 580px;
+}
+
+.link {
+	display: inline-block;
+	border: 1px solid black;
+	text-decoration: none;
+	padding: 5px;
+}
+
+.img {
+	height: 100px;
+	width: 100px;
+}
