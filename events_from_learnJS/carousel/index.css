@@ -42,6 +42,7 @@
 }
 
 #list-of-images {
+    transition: all 1s;
     width: 9999px;
     padding: 0;
     list-style: none;
