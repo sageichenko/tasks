@@ -1,12 +1,27 @@
-#tree span:hover {
+
+
+.list > * {
+    display: inline-block;
+}
+
+.list>dt:hover {
     font-weight: bold;
     cursor: pointer;
 }
 
-.list>li {
+.list::before {
+    content: ">";
+}
+
+.list>dd {
     display: none;
 }
 
-.list_open>li{
+.list._open>dd{
     display: block;
 }
+
+.list._open::before {
+    content: "-"
+}
+

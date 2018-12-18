@@ -1,33 +1,41 @@
-function showToolTip (event) {
-	let target = event.target;
-	let message = target.getAttribute('data-tooltip');
-	if (!message) {
-		return;
-	}
-
+function createToolTip (message, coordinates) {
 	let toolTip = document.createElement('span');
+
 	toolTip.id = 'tooltip';
-	toolTip.innerHTML = message;	
+	toolTip.innerHTML = message;
 
 	document.body.appendChild(toolTip);
 
 	toolTip.style.position = 'fixed';
 
-	let coord = target.getBoundingClientRect();
+	let top = coordinates.top - toolTip.offsetHeight - 3;
 
-	let top = coord.top - toolTip.offsetHeight - 3;
 	if (top <= 0) {
-		top += toolTip.offsetHeight + coord.bottom - coord.top + 6;
+		top += toolTip.offsetHeight + coordinates.bottom - coordinates.top + 6;
 	}
 
 	toolTip.style.top = `${top}px`
-	toolTip.style.left = `${coord.left}px`;
-
+	toolTip.style.left = `${coordinates.left}px`;
 }
 
-function hideToolTip (event){
-	document.getElementById('tooltip').remove();
+function toggleToolTip (event) {
+	let toolTip = document.getElementById('tooltip');
+
+	if (toolTip){
+		toolTip.remove();
+		return;
+	}
+
+	let target = event.target;
+	let message = target.getAttribute('data-tooltip');
+
+	if (!message) {
+		return;
+	}
+
+	let coordinates = target.getBoundingClientRect();
+
+	createToolTip(message, coordinates);
 }
 
-document.body.addEventListener('mouseover', showToolTip);
-document.body.addEventListener('mouseout', hideToolTip);
+document.body.addEventListener('mouseover', toggleToolTip);

@@ -1,17 +1,19 @@
 function openList(event) {
     let target = event.target;
 
-    if (target.tagName !== 'SPAN'){
+    if (target.tagName !== 'DT'){
         return;
     }
 
-    let parent = target.parentElement;
+    let parent = target.closest('.list');
 
-    if (parent.className.indexOf('_open') === -1) {
-        parent.className += '_open';
+    parent.classList.toggle('_open');
+
+    /*if (parent.className.indexOf('_open') === -1) {
+        parent.className += ' _open';
         return
     }
-    parent.className = parent.className.replace('_open', '');
+    parent.className = parent.className.replace('_open', '');*/
 }
 
 tree.addEventListener('click', openList);

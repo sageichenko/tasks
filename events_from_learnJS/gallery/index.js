@@ -12,4 +12,9 @@ function showImage (event) {
     }
 }
 
+let imgs = gallery.getElementsByClassName('preview-img');
+for (img of imgs) {
+    img.src = img.parentNode.href;
+}
+
 gallery.addEventListener('click', showImage);
