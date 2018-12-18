@@ -1,0 +1,12 @@
+
+#field {
+    position: relative;
+    height: 500px;
+    width: 500px;
+    border: 5px solid black;
+    background-color: maroon;
+}
+
+#ball {
+    transition: all 1s;
+}

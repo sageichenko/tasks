@@ -1,0 +1,12 @@
+#tree span:hover {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.list>li {
+    display: none;
+}
+
+.list_open>li{
+    display: block;
+}
