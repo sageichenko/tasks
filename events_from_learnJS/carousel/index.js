@@ -5,7 +5,7 @@ let imgQty = 8;
 let imgWidth = 90;
 let offset = 10;
 let vissibleImgQty = 3;
-let minPos = -(Math.ceil(imgQty/vissibleImgQty) - 1) * imgListWidth;
+let minPos = -(Math.floor((imgQty - 3)/vissibleImgQty)) * imgListWidth - imgQty%3*(imgWidth + offset);
 
 
 (function () {
