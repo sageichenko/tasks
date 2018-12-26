@@ -1,21 +1,26 @@
 function throttle(func, ms) {
     let lastValue = null;
     let timer = null;
-    return function () {
+    let f = function () {
         let args = [].slice.call(arguments);
         if (!timer) {
             func(...args);
             timer = setTimeout(function tick() {
                 lastValue && func(...lastValue);
                 lastValue = null;
-                setTimeout(tick, ms);
+                timer = setTimeout(tick, ms);
             }, ms);
             return;
         }
         lastValue = args;
-    }
-}
+    };
 
+    f.stop = function () {
+        clearTimeout(timer);
+    };
+    
+    return f;
+}
 
 let f = function (a) {
     console.log(a)
@@ -29,7 +34,7 @@ f1000(2); // (тормозим, не прошло 1000 мс)
 f1000(3); // (тормозим, не прошло 1000 мс)
 
 setTimeout(function () {
-    f1000(4)
+    f1000(4);
 }, 1200); // вызовется через 1000 после 3
 
 // когда пройдёт 1000 мс...
