@@ -5,10 +5,10 @@ function throttle(func, ms) {
         let args = [].slice.call(arguments);
         if (!timer) {
             func(...args);
-            timer = setTimeout(() => {
+            timer = setTimeout(function tick() {
                 lastValue && func(...lastValue);
-                timer = null;
                 lastValue = null;
+                setTimeout(tick, ms);
             }, ms);
             return;
         }
@@ -27,6 +27,10 @@ let f1000 = throttle(f, 1000);
 f1000(1); // выведет 1
 f1000(2); // (тормозим, не прошло 1000 мс)
 f1000(3); // (тормозим, не прошло 1000 мс)
+
+setTimeout(function () {
+    f1000(4)
+}, 1200); // игнорируем вызов (3)
 
 // когда пройдёт 1000 мс...
 // выведет 3, промежуточное значение 2 игнорируется
