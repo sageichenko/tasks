@@ -6,15 +6,18 @@ function throttle(func, ms) {
         if (!timer) {
             func(...args);
             timer = setTimeout(function tick() {
-                lastValue && func(...lastValue);
-                lastValue = null;
-                timer = setTimeout(tick, ms);
+                if (lastValue) {
+                    func(...lastValue);
+                    lastValue = null;
+                    timer = setTimeout(tick, ms);
+                    return;
+                }
+                timer = null;
             }, ms);
             return;
         }
         lastValue = args;
-    };
-
+    };    
     f.stop = function () {
         clearTimeout(timer);
     };
