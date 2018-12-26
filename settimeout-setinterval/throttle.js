@@ -4,9 +4,9 @@ function throttle(func, ms) {
     return function () {
         let args = [].slice.call(arguments);
         if (!timer) {
-            func(args);
+            func(...args);
             timer = setTimeout(() => {
-                lastValue && func(lastValue);
+                lastValue && func(...lastValue);
                 timer = null;
                 lastValue = null;
             }, ms);
