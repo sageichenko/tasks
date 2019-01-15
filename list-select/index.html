@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+	<title>List Select</title>
+	<script src="script.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<meta charset="utf-8">
+</head>
+<body>
+	<ul class="list" id="list">
+		<li class="list__item _selected">Lorem.</li>
+		<li class="list__item">Quisquam.</li>
+		<li class="list__item">Alias?</li>
+		<li class="list__item">Est?</li>
+		<li class="list__item">Error?</li>
+	</ul>
+	<script>
+		let list = new ListSelect({
+			elem: document.getElementById('list')
+		});
+	</script>
+</body>
+</html>

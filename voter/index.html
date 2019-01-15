@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+	<title>Voter</title>
+	<script src="script.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<meta charset="utf-8">
+</head>
+<body>
+	<div id="voter" class="voter">
+  		<span class="down">—</span>
+  		<span class="vote">0</span>
+  		<span class="up">+</span>
+	</div>
+	<script>
+		let voter = new Voter({
+			elem: document.getElementById('voter')
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+.list {
+	display: inline-block;
+}
+
+.list__item {
+	font-weight: bold;
+}
+
+.list__item._selected {
+	color: white;
+	background-color: orangered;
+}

@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+	<title>Clock</title>
+	<script src="clock.js"></script>
+	<meta charset="utf-8">
+</head>
+<body>
+	<div class="clock" id="clock"></div>
+	<script>
+		let clock = new Clock ( { 
+			elem: document.getElementById('clock') } 
+			);
+	</script>
+	<button onclick="clock.start()">Start</button>
+	<button onclick="clock.stop()">Stop</button>
+	<button onclick="alert('Clock is stoped')">Alert</button>
+	
+</body>
+</html>
